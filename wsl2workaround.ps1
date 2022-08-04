@@ -28,7 +28,6 @@ if ( "start" -ilike $Action )
 elseif ( "stop" -ilike $Action )
 {
     Get-NetAdapter | ? {$_.InterfaceDescription -like "*Cisco*" } |Set-NetIPInterface -InterfaceMetric 1
-    Clear-Content -Path $File
     Set-Content -Path $File -Value "nameserver 8.8.8.8`n" -Encoding "ascii" -NoNewline
 }
 else
